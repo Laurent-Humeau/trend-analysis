@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+ <div class="container main-container d-flex align-items-center justify-content-center">
+        <div class=" col-md-6 mt-5 text-center p-4">
+            <h1 class="mb-4">Welcome to Trend Analysis</h1>
+            <p class="mb-5">Explore trending topics and analyze search trends over time with our tools.</p>
+            <div class="d-flex flex-column gap-3">
+                <a href="{{ url_for('trends') }}" class="btn btn-primary btn-lg mb-4">Get Latest Trends</a>
+                <a href="{{ url_for('keyword') }}" class="btn btn-secondary btn-lg">Search Trend History by Keyword</a>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock content%}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container mt-5 text-center">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h3 class="text-center mb-4">Enter a Keyword</h3>
+                <form action="{{ url_for('keyword') }}" method='post'>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="keyword" name="keyword" placeholder="Enter keyword" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                </form>
+                 <div class="container mt-5">
+                     {% if keyword %}
+        <h3 class="text-center mb-4">Google Trends for "{{ keyword }}"</h3>
+                     {% else %}
+                     <h3 class="text-center mb-4"></h3>
+                     {% endif %}
+
+        {% if plot_url %}
+            <div class="text-center">
+                <img src="data:image/png;base64,{{ plot_url }}" alt="Trend Graph" class="img-fluid"/>
+            </div>
+        {% else %}
+            <p class="text-center text-danger">{{ error }}</p>
+        {% endif %}
+    </div>
+                <div class="container mt-5">
+                    {% for trend in trending %}
+                    <ul>
+                        <li>{{ trend }}</li>
+                    </ul>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="">
+                <a href="{{ url_for('index') }}" class="btn btn-primary btn-lg mb-4">Home</a>
+            </div>
+    </div>
+
+
+   {% endblock content %}

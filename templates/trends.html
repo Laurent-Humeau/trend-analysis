@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+                <div class="container mt-5 text-center">
+                    <h3>The latest trends are: </h3>
+                    {% for trend in trending_list %}
+                    <ul class="list-unstyled">
+                        <li>{{ trend }}</li>
+                    </ul>
+                    {% endfor %}
+                    <div class="">
+                <a href="{{ url_for('index') }}" class="btn btn-primary btn-lg mb-4">Home</a>
+            </div>
+                </div>
+
+
+
+   {% endblock content %}
